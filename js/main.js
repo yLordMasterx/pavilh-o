@@ -128,7 +128,7 @@ game.onDeath = () => {
     })();
   }, 750);
 };
-game.onWin = trueEnd => { input.enabled = false; input.unlock(); UI.playUI(false); game.state = 'won'; endScreen(trueEnd ? 'true' : 'normal'); };
+game.onWin = trueEnd => { input.enabled = false; input.unlock(); UI.playUI(false); game.state = 'won'; endScreen(trueEnd ? 'true' : 'normal'); setTimeout(() => UI.fade(false), 50); };
 
 /* ---------- Laço ---------- */
 let last = performance.now();

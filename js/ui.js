@@ -18,7 +18,8 @@ export const UI = {
   },
   resetObjective() { lastObjective = ''; },
   prompt(label, locked) {
-    const p = $('prompt');
+    const p = $('prompt'), k = (label || '') + (locked ? '!' : '');
+    if (k === this._lastPrompt) return; this._lastPrompt = k;
     if (!label) { p.classList.remove('show'); return; }
     const key = this.isTouch ? 'Usar' : 'E';
     p.innerHTML = `<b>${key}</b>${label}`; p.classList.toggle('locked', !!locked); p.classList.add('show');
